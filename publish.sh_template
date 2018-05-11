@@ -1,0 +1,17 @@
+#!/bin/bash
+
+list="xgboost4j xgboost4j-example xgboost4j-flink xgboost4j-spark"
+jvm_path="/root/xgboost/jvm-packages"
+
+cd $jvm_path
+build_version=`mvn -q -Dexec.executable="echo" -Dexec.args='${project.version}' --non-recursive org.codehaus.mojo:exec-maven-plugin:1.3.1:exec 2>/dev/null`
+version=`echo ${build_version} | awk -F "-" '{print $1}'`
+
+for each in ${list}
+do
+    echo "Publishing ${each} to nexus repo"
+    cd ${jvm_path}/${each}
+    mvn deploy:deploy-file -DgroupId=com.meetup -DartifactId=${each} -Dversion=${version} -DgeneratePom=true -DmodelVersion=4.0.0 \
+        -DrepositoryId=nexus -Dpackaging=jar -Durl=https://{{ NEXUS_HOST }}/content/repositories/thirdparty/ \
+        -Dfile=${jvm_path}/${each}/target/${each}-${build_version}.jar
+done
