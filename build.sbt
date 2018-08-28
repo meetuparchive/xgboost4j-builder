@@ -16,7 +16,7 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % "2.2.0" % "provided", // See: https://github.com/sbt/sbt-assembly#excluding-jars-and-files
   "org.apache.spark" %% "spark-mllib" % "2.2.0",
   "org.scalatest" %% "scalatest" % "3.0.3",
-  "ml.dmlc" % "xgboost4j-spark" % "latest.SNAPSHOT"
+  "ml.dmlc" % "xgboost4j-spark" % "0.80"
 )
 
 // Code below is necessary only if `sbt assembly` is desired to packed up the Scala code here.
