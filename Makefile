@@ -1,5 +1,5 @@
 package:
-	@docker build --build-arg XGBOOST_REF=$(git ls-remote -h https://github.com/dmlc/xgboost master | head -1 | cut -f 1) -t xgboost4j-builder-container .
+	@docker build --build-arg XGBOOST_REF=release_0.80 -t xgboost4j-builder-container .
 
 test: package
 	@docker run -v `pwd`:/xgboost4j-builder-repo \

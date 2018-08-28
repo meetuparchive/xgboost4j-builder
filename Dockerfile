@@ -40,7 +40,7 @@ RUN cd /usr/local && \
 RUN sbt reload
 
 # install xgboost (intended use with --build-arg and the latest commit hash ensures that build is up-to-date)
-ARG XGBOOST_REF="HEAD"
+ARG XGBOOST_REF="release_0.80"
 RUN cd ~ && \
     git clone --recursive https://github.com/dmlc/xgboost && \
     cd xgboost && \
