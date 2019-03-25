@@ -18,7 +18,7 @@ before_install:
 script:
   - >
     if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
-      travis_wait 60 make publish-nexus;
+      travis_wait 60 make test;
     else
       travis_wait 60 make test;
     fi

@@ -47,7 +47,7 @@ RUN cd ~ && \
     git checkout $XGBOOST_REF && \
     make -j4 && \
     cd jvm-packages && \
-    mvn -q -Dclean -DskipTests install package
+    mvn -q -Dclean install package
 
 ENTRYPOINT cd /xgboost4j-builder-repo && \
     # --error and src/test/resouces/log4j.properties are to reduce log output for travis and can be adapted locally

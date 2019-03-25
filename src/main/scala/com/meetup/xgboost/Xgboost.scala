@@ -20,6 +20,9 @@ object Xgboost {
 
     val rmse = sampleTraining()(sc, ss)
     println(s"Training completed with RMSE $rmse")
+
+    val xvrmse = sampleXvalTraining()(sc, ss)
+    println(s"Training completed with RMSE $xvrmse")
     sc.stop()
 
   }
