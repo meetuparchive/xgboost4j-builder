@@ -1,5 +1,9 @@
 # XGBoost in Spark #
 
+## Update ##
+
+Since mid-2018, XGBoost is available in [maven central](https://mvnrepository.com/artifact/ml.dmlc/xgboost4j-spark "XGBoost in Maven").
+
 ## Spark & Boosted decision trees ##
 
 The machine learning team at [Meetup](https://www.meetup.com/ "Meetup") uses [Apache Spark](https://spark.apache.org/ "Apache Spark") for most of its batch data processing and modeling needs. To keep things simple and robust, we share code between training and production scoring for things like feature generation. In addition, model scoring is an embarrassingly parallel task which Spark can easily exploit. Both of these aspects give us an incentive to have everything running within Spark.
